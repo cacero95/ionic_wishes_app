@@ -1,0 +1,17 @@
+<ion-header mode="ios" [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Pending
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <app-listas [finished]=false></app-listas>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="add_toList()" color="tertiary">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

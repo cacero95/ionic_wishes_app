@@ -1,0 +1,40 @@
+<ion-header mode="ios" [translucent]="true">
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+            <!--the defaultHref works for force Ionic to show the icon back
+        beacuse ionic detect if the route has default back
+      if it did not detect nothing no show-->
+            <ion-back-button color="tertiary" defaultHref="/">
+
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>{{list.title}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating">New Item</ion-label>
+            <ion-input (keyup.enter)="add_item()" [(ngModel)]="description" type="text"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            <ion-label *ngIf="list.items.length > 0">Pending Task</ion-label>
+            <ion-label *ngIf="list.items.length == 0">Not Tasks</ion-label>
+        </ion-list-header>
+        <ion-item-sliding #sliding (ionDrag)="delete_item(idx)" class="animated fadeInDown" *ngFor="let item of list.items; let idx=index">
+            <ion-item>
+                <!--(ionChange) evento que se lanza cuando cambia el estado de un objeto-->
+                <ion-checkbox (ionChange)="change_state(item)" [checked]="item.complete" [(ngModel)]="item.complete" color="tertiary" slot="start"></ion-checkbox>
+                <ion-label>{{item.description}}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option (click)="erase_item(idx)" color="danger">
+                    <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

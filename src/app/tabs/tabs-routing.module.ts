@@ -13,7 +13,12 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../pages/tab1/tab1.module').then(m => m.Tab1PageModule)
+          },
+          {
+            path: 'add/:id',
+            loadChildren: () =>
+              import('../pages/add-wish/add-wish.module').then(m => m.AddWishPageModule)
           }
         ]
       },
@@ -23,17 +28,12 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
+              import('../pages/tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
           {
-            path: '',
+            path: 'add/:id',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../pages/add-wish/add-wish.module').then(m => m.AddWishPageModule)
           }
         ]
       },

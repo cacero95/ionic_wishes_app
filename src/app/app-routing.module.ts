@@ -6,6 +6,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   }
+  /**,
+  {
+    path: 'add-wish',
+    loadChildren: () => import('./pages/add-wish/add-wish.module').then( m => m.AddWishPageModule)
+  } */
 ];
 @NgModule({
   imports: [

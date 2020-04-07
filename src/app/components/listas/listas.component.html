@@ -1,0 +1,20 @@
+<ion-list>
+    <ion-item-sliding *ngFor="let item of lists | isFinished:finished">
+        <ion-item (click)="select_list(item.id)" detail>
+
+            <ion-label> {{item.title}} </ion-label>
+            <ion-note slot="end" color="tertiary"> {{item.items.length}} items</ion-note>
+
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="delete_list(item)">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+        <ion-item-options side="start">
+            <ion-item-option (click)="edit_list_name(item)">
+                <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+</ion-list>
